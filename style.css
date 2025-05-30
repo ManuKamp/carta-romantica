@@ -1,0 +1,200 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #fff0f5, #f8bbd0);
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 340px;
+  height: 240px;
+  perspective: 1200px;
+}
+
+.carta {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+  cursor: pointer;
+}
+
+.carta.aberta {
+  transform: rotateX(180deg);
+}
+
+.tampa {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #d81b60, #ad1457);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.tampa::after {
+  content: "💌";
+  position: absolute;
+  bottom: 12px;
+  font-size: 28px;
+  opacity: 0.8;
+}
+
+.papel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff8f0;
+  border: 2px solid #d81b60;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  transform: rotateX(180deg);
+  backface-visibility: hidden;
+  overflow-y: auto;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+.mensagem {
+  font-size: 17px;
+  color: #4e4e4e;
+  line-height: 1.6;
+  font-family: 'Great Vibes', cursive;
+  white-space: pre-wrap;
+  padding-right: 5px;
+}
+
+.digitando {
+  border-right: 2px solid #d81b60;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Scroll bonitinho */
+.papel::-webkit-scrollbar {
+  width: 6px;
+}
+.papel::-webkit-scrollbar-thumb {
+  background: #d81b60;
+  border-radius: 4px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #fff0f5, #f8bbd0);
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 340px;
+  height: 240px;
+  perspective: 1200px;
+}
+
+.carta {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+  cursor: pointer;
+}
+
+.carta.aberta {
+  transform: rotateX(180deg);
+}
+
+.tampa {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #d81b60, #ad1457);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.tampa::after {
+  content: "💌";
+  position: absolute;
+  bottom: 12px;
+  font-size: 28px;
+  opacity: 0.8;
+}
+
+.papel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff8f0;
+  border: 2px solid #d81b60;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  transform: rotateX(180deg);
+  backface-visibility: hidden;
+  overflow-y: auto;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+.mensagem {
+  font-size: 17px;
+  color: #4e4e4e;
+  line-height: 1.6;
+  font-family: 'Great Vibes', cursive;
+  white-space: pre-wrap;
+  padding-right: 5px;
+}
+
+.digitando {
+  border-right: 2px solid #d81b60;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Scroll bonitinho */
+.papel::-webkit-scrollbar {
+  width: 6px;
+}
+.papel::-webkit-scrollbar-thumb {
+  background: #d81b60;
+  border-radius: 4px;
+}

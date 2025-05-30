@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meu Amor é Fogo e Sangue</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('https://wallpaperaccess.com/full/1121988.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Cinzel', serif;
+    }
+    .bg-overlay {
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .parchment {
+      background: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      background-color: #f8f1dc;
+      color: #3b2f2f;
+      font-family: 'Georgia', serif;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="text-white">
+  <div class="bg-overlay min-h-screen flex flex-col items-center justify-center text-center px-4 py-12">
+    <h1 class="text-5xl font-bold text-red-500 mb-4">Para minha Rainha de Dragões 🐉</h1>
+    <p class="max-w-2xl text-lg mb-6 italic">
+      "Meu amor por você é como o fogo de um dragão: eterno, feroz, incontrolável.  
+      Em um mundo de gelo e sombras, você é minha luz. Eu juro lealdade ao seu coração, hoje e sempre."
+    </p>
+    <img src="sua-foto.png" class="rounded-full border-4 border-red-700 mb-6 shadow-lg w-72 h-72 object-cover" alt="Foto do casal estilo Game of Thrones">
+    
+    <div class="max-w-4xl mx-auto mt-10 mb-8">
+      <img src="drogon.jpg" alt="Drogon soltando fogo - Dracarys" class="rounded-lg shadow-xl border-4 border-red-800">
+      <p class="mt-4 text-xl italic text-yellow-300 text-center">"Dracarys..." — queimar por amor é um destino digno de reis e rainhas.</p>
+    </div>
+
+    <div class="parchment max-w-3xl mx-auto my-8 text-left">
+      <h2 class="text-2xl text-center font-bold mb-4">Carta do Lobo do Norte</h2>
+      <p class="mb-4 italic text-center">Escrita no tempo dos ventos do Norte, desde o dia 21 do mês de Maio, do ano de 2025 — quando nosso destino foi selado</p>
+      <p class="mb-4">Minha amada,</p>
+      <p class="mb-4">Nestes tempos de reinos divididos e ventos gelados do Norte, encontrei abrigo em ti — o mais quente dos lares, o mais verdadeiro dos portos. Desde o dia em que nossos caminhos se cruzaram e o destino nos uniu, naquele vigésimo primeiro dia de Maio, meu coração passou a bater em outra cadência: a tua.</p>
+      <p class="mb-4">Juro por todas as estrelas de Westeros e pelas antigas árvores-coração que desde então, nenhum outro olhar me encantou como o teu, nenhuma outra presença me fez sentir tão inteiro. Em teus braços, sou mais do que homem — sou teu.</p>
+      <p class="mb-4">Tu me fazes sentir especial, como se o mundo inteiro se curvasse em silêncio apenas para ouvir a batida do meu coração ao encontrar o teu. És meu sol nas manhãs frias, minha guardiã nas noites escuras, minha única verdade em um mundo de sombras e mentiras.</p>
+      <p class="mb-4">A cada dia que passa, meu amor cresce como o fogo de um dragão: ardente, indomável e eterno. Não para destruir, mas para proteger, iluminar e te envolver em calor.</p>
+      <p class="mb-4">Tu me fazes feliz de um modo que nem as canções dos bardos conseguiriam cantar. És a alegria que vive em mim, tão profunda quanto os mares de Essos e tão vasta quanto as muralhas de Winterfell. Minha rainha, não por linhagem, mas por escolha — e é a ti que juro lealdade até o último inverno.</p>
+      <p class="mb-4">Que os corvos levem estas palavras até teu coração e que nelas encontres a promessa de um amor que jamais se dobrará, jamais partirá, jamais esquecerá.</p>
+      <p class="mt-6 text-right font-semibold">Teu sempre,<br>Kaique Weiler<br><span class="italic">Teu Lobo do Norte</span></p>
+    </div>
+  </div>
+
+  <canvas id="fireCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;"></canvas>
+  <script>
+    const canvas = document.getElementById('fireCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    function createParticle() {
+      return {
+        x: Math.random() * canvas.width,
+        y: canvas.height + Math.random() * 100,
+        radius: Math.random() * 2 + 1,
+        speedY: Math.random() * 1 + 0.5,
+        alpha: Math.random() * 0.5 + 0.2
+      };
+    }
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 100, 0, ${p.alpha})`;
+        ctx.fill();
+        p.y -= p.speedY;
+        if (p.y < 0) particles[i] = createParticle();
+      }
+    }
+    function loop() {
+      drawParticles();
+      requestAnimationFrame(loop);
+    }
+    for (let i = 0; i < 200; i++) {
+      particles.push(createParticle());
+    }
+    loop();
+  </script>
+</body>
+</html>
